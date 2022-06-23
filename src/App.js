@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const App = () => {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+const fetchProducts = () => {
+  axios
+    .get('db/habbi.json')
+    .then((res) => {
+      console.log(res);
+      setProducts(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+return (
+    <div>
+      <h1>Featured Products</h1>
+      <div className='item-container'>
+        {products.map((product) => (
+          <div className='card' key={product.id}>
+            <img src={product.image} alt='' />
+            <h3>{product.brand}</h3>
+            <p>{product.item}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
-}
+};
 
 export default App;
