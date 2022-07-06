@@ -7,11 +7,20 @@ const PORT = process.env.PORT;
 const app = express();
 app.use(express.json());
 
-mongoose.connect(process.env.DATABASE_URL);
-mongoose.connection.on("connected", () => {
-    console.log("DB: Connected")
-});
+//routes
+const membersRouter = require("./routes/members")
+app.use('/api/members', membersRouter)
+
 
 app.listen(PORT, () => {
     console.log('API is now listening on port ' + PORT)
+});
+
+mongoose.connect(mongo);
+const db = mongoose.connection;
+db.on('error', () => {
+    console.log('DB: unknown error')
+})
+db.on('connected', () => {
+    console.log('DB: connected')
 });
