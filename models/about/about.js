@@ -2,8 +2,7 @@ const mongoose = require('mongoose');
 
 const aboutSchema = new mongoose.Schema({
     id: {
-        type: String,
-        required: true
+        type: Number,
     },
     content: {
         type: String,
