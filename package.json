@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/horsaen/api#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "meilisearch": "^0.27.0",
     "mongoose": "^6.4.1",
     "nodemon": "^2.0.18"
   }
