@@ -11,8 +11,7 @@
     "url": "git+https://github.com/horsaen/api.git"
   },
   "proxy": "http://localhost:3000",
-  "author": "",
-  "license": "ISC",
+  "author": "horsaen",
   "bugs": {
     "url": "https://github.com/horsaen/api/issues"
   },
