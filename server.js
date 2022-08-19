@@ -10,11 +10,11 @@ app.use(cors());
 
 // routes
 const membersRouter = require("./routes/about/members")
-    app.use('/api/members', membersRouter)
+    app.use('/members', membersRouter)
 const aboutRouter = require("./routes/about/about")
-    app.use('/api/about', aboutRouter)
+    app.use('/about', aboutRouter)
 const businessRouter = require("./routes/business/business")
-    app.use('/api/business', businessRouter)
+    app.use('/business', businessRouter)
 
 app.listen(PORT, () => {
     console.log('API is now listening on port ' + PORT)
