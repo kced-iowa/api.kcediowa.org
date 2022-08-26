@@ -1,14 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const member = require('../../models/about/members');
+const Member = require('../../models/about/members');
 
 router.get('/', async (req, res) => {
     try {
-        const members = await member.find();
+        const members = await Member.find();
         res.json(members);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
 })
-
+router.get('/:id', (req, res) => {
+    res.send(req.params.id);
+})
 module.exports = router
