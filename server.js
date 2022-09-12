@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 
 // routes
-const membersRouter = require("./routes/about/members")
+const membersRouter = require("./routes/about/member")
     app.use('/members', membersRouter)
 const aboutRouter = require("./routes/about/about")
     app.use('/about', aboutRouter)
