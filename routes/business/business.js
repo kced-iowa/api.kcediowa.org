@@ -1,22 +1,31 @@
 const express = require('express');
 const router = express.Router();
-const businesses = require('../../models/business/business');
+const Business = require('../../models/business/business');
 
 router.get('/', async (req, res) => {
     try {
-        const busines = await businesses.find();
-        res.json(busines);
+        const businesses = await Business.find();
+        res.json(businesses);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
 })
-router.get('/:id', async (req, res) => {
+router.get('/:id', getBusiness, async (req, res) => {
+    res.json(res.business)
+})
+
+async function getBusiness (req, res, next) {
+    let business
     try {
-        const busines = await businesses.find();
-        res.json(busines);
-    } catch (err) {
-        res.status(500).json({ message: err.message });
+        business = await Business.findById(req.params.id)
+        if (business == null) {
+            return res.status(404).json({ message: 'Cannot find business' })
     }
-})
+    } catch (err) {
+        return res.status(500).json({ message: err.message })
+    }
+    res.business = business
+    next()
+}
 
 module.exports = router;
