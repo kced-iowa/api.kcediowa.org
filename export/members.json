@@ -1,0 +1,130 @@
+[{
+  "_id": {
+    "$oid": "6327f70ea9c7c674896b69fb"
+  },
+  "id": "1",
+  "name": "*Kevin Hatfield",
+  "occupation": "Superintendent of Schools",
+  "image": "BlacK.jpg"
+},{
+  "_id": {
+    "$oid": "6327f70ea9c7c674896b69fc"
+  },
+  "id": "2",
+  "name": "Staci Shettler",
+  "occupation": "Farm Bureau Insurance",
+  "image": "BlacK.jpg"
+},{
+  "_id": {
+    "$oid": "6327f70ea9c7c674896b69fd"
+  },
+  "id": "3",
+  "name": "Shannon Stevens",
+  "occupation": "Secretary",
+  "image": "BlacK.jpg"
+},{
+  "_id": {
+    "$oid": "6327f70ea9c7c674896b69fe"
+  },
+  "id": "4",
+  "name": "Judy Frank",
+  "occupation": "Administrative Assistant - Treasurer",
+  "image": "BlacK.jpg"
+},{
+  "_id": {
+    "$oid": "6327f70ea9c7c674896b69ff"
+  },
+  "id": "5",
+  "name": "Jeff Graff",
+  "occupation": "Sigourney Tractor - President",
+  "image": "BlacK.jpg"
+},{
+  "_id": {
+    "$oid": "6327f70ea9c7c674896b6a00"
+  },
+  "id": "6",
+  "name": "*Fred Snakenberg",
+  "occupation": "Keokuk County Board of Supervisors",
+  "image": "BlacK.jpg"
+},{
+  "_id": {
+    "$oid": "6327f70ea9c7c674896b6a01"
+  },
+  "id": "7",
+  "name": "*Scott Long",
+  "occupation": "T.I.P. Rural Electric Company",
+  "image": "BlacK.jpg"
+},{
+  "_id": {
+    "$oid": "6327f70ea9c7c674896b6a02"
+  },
+  "id": "8",
+  "name": "Lucas Meier",
+  "occupation": "County State Bank",
+  "image": "BlacK.jpg"
+},{
+  "_id": {
+    "$oid": "6327f70ea9c7c674896b6a03"
+  },
+  "id": "9",
+  "name": "*Jim Morlan",
+  "occupation": "Mayor of Sigourney",
+  "image": "BlacK.jpg"
+},{
+  "_id": {
+    "$oid": "6327f70ea9c7c674896b6a04"
+  },
+  "id": "10",
+  "name": "*Kelley Walker",
+  "occupation": "Keokuk County Extension",
+  "image": "BlacK.jpg"
+},{
+  "_id": {
+    "$oid": "6327f70ea9c7c674896b6a05"
+  },
+  "id": "11",
+  "name": "*Dan O'Rourke",
+  "occupation": "County Bank",
+  "image": "BlacK.jpg"
+},{
+  "_id": {
+    "$oid": "6327f70ea9c7c674896b6a06"
+  },
+  "id": "12",
+  "name": "*Gary Iosbaker",
+  "occupation": "City of Sigourney",
+  "image": "GaryI.jpg"
+},{
+  "_id": {
+    "$oid": "6327f70ea9c7c674896b6a07"
+  },
+  "id": "13",
+  "name": "Hunter Bruns",
+  "occupation": "Mahaska  Communications Group",
+  "image": "BlacK.jpg"
+},{
+  "_id": {
+    "$oid": "6327f70ea9c7c674896b6a08"
+  },
+  "id": "14",
+  "name": "Liz Loney",
+  "occupation": "MidWestOne Bank",
+  "image": "LizL.jpg",
+  "bio": "My name is Liz Loney. I moved to Sigourney about two years ago to manage the MidWestOne Bank. When I began working in town, I was introduced to SADC through Judy Frank and joined the board shortly. During my short time here, I have met incredible people who are determined to make this town and county the best it can possibly be. I currently live in Sigourney with my husband and three dogs (Beau, Bean, and Biscuit). SADC has provided us with many opportunities to get to know the community and learn more about what is available in the area."
+},{
+  "_id": {
+    "$oid": "6327f70ea9c7c674896b6a09"
+  },
+  "id": "15",
+  "name": "Darin Graff",
+  "occupation": "Sigourney Tractor",
+  "image": "BlacK.jpg"
+},{
+  "_id": {
+    "$oid": "6327f70ea9c7c674896b6a0a"
+  },
+  "id": "16",
+  "name": "Amanda Snakenberg",
+  "occupation": "Barn Wired",
+  "image": "BlacK.jpg"
+}]
