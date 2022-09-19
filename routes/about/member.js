@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const Members = require('../../models/about/member');
+const Member = require('../../models/about/member');
 
 router.get('/', async (req, res) => {
     try {
-        const members = await Members.find();
+        const members = await Member.find();
         res.json(members);
     } catch (err) {
         res.status(500).json({ message: err.message });
@@ -17,7 +17,7 @@ router.get('/:id', getMember, async (req, res) => {
 async function getMember (req, res, next) {
     let member
     try {
-        member = await Members.findById(req.params.id);
+        member = await Member.findById(req.params.id);
         if (member == null) {
             return res.status(404).json({ message: 'Cannot find member' })
         }
