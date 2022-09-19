@@ -1,9 +1,6 @@
 const mongoose = require('mongoose');
 
 const businessSchema = new mongoose.Schema({
-    id: {
-        type: Number,
-    },
     name: {
         type: String,
         required: true
@@ -12,7 +9,19 @@ const businessSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    coverimag: {
+    coverimg: {
+        type: String
+    },
+    mainimg: {
+        type: String
+    },
+    phone: {
+        type: String
+    },
+    address: {
+        type: String
+    },
+    bio: {
         type: String
     },
     website: {
