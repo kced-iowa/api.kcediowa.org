@@ -15,6 +15,10 @@ const aboutRouter = require("./routes/about/about")
     app.use('/about', aboutRouter)
 const businessRouter = require("./routes/business/business")
     app.use('/business', businessRouter)
+const eventsRouter = require("./routes/events/events")
+    app.use('/events', eventsRouter)
+const newsRouter = require("./routes/news/news")
+    app.use('/news', newsRouter)
 
 app.listen(PORT, () => {
     console.log('API is now listening on port ' + PORT)

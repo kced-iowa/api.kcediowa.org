@@ -1,38 +1,34 @@
 const mongoose = require('mongoose');
 
-const businessSchema = new mongoose.Schema({
+const eventsSchema = new mongoose.Schema({
     id: {
         type: Number
     },
-    name: {
+    title: {
         type: String,
         required: true
     },
-    type: {
-        type: String,
-        required: true
-    },
-    coverimg: {
+    dd: {
         type: String
     },
-    mainimg: {
+    mm: {
         type: String
     },
-    phone: {
+    timestart: {
+        type: String
+    },
+    timeend: {
+        type: String
+    },
+    desc: {
         type: String
     },
     address: {
         type: String
     },
-    bio: {
-        type: String
-    },
-    website: {
-        type: String
-    },
-    facebook: {
+    rsvp: {
         type: String
     }
 })
 
-module.exports = mongoose.model('business', businessSchema)
+module.exports = mongoose.model('events', eventsSchema);
