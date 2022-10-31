@@ -1,11 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const helmet = require('helmet');
 require('dotenv').config();
 const MONGO = process.env.DATABASE_URL;
 const PORT = process.env.PORT;
 
 const app = express();
+app.use(helmet());
 app.use(cors());
 
 // routes
