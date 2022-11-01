@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const helmet = require('helmet');
+const { apiKeyAuth } = require('@vpriem/express-api-key-auth');
 require('dotenv').config();
 const MONGO = process.env.DATABASE_URL;
 const PORT = process.env.PORT;
