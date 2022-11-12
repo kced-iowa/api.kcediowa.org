@@ -3,12 +3,16 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const helmet = require('helmet');
 const { apiKeyAuth } = require('@vpriem/express-api-key-auth');
+var bodyParser = require('body-parser')
 require('dotenv').config();
 const MONGO = process.env.DATABASE_URL;
 const PORT = process.env.PORT;
 
 const app = express();
+// express().use(apiKeyAuth(['my-api-key1', 'my-api-key2']));
+app.use(bodyParser.json())
 app.use(helmet());
+app.use(express.json())
 app.use(cors());
 
 // routes

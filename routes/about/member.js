@@ -13,7 +13,17 @@ router.get('/', async (req, res) => {
 router.get('/:id', getMember, async (req, res) => {
     res.json(res.member)
 })
-
+router.post('/', async (req, res) =>{
+    const member = new Member({
+        name: req.body.name
+    })
+    try {
+        const newMember = await member.save()
+        res.status(201).json(newMember)
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+})
 async function getMember (req, res, next) {
     let member
     try {
