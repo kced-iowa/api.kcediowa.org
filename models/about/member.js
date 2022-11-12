@@ -7,11 +7,11 @@ const memberSchema = new mongoose.Schema({
     },
     occupation: {
         type: String,
-        required: true
+        // required: true
     },
     join: {
         type: Number,
-        required: true
+        // required: true
     },
     image: {
         type: String,
