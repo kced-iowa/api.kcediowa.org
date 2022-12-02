@@ -15,7 +15,9 @@ router.get('/:id', getMember, async (req, res) => {
 })
 router.post('/', async (req, res) =>{
     const member = new Member({
-        name: req.body.name
+        name: req.body.name,
+        occupation: req.body.occupation,
+        bio: req.body.bio
     })
     try {
         const newMember = await member.save()
