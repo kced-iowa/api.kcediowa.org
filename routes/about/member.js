@@ -17,13 +17,21 @@ router.post('/', async (req, res) =>{
     const member = new Member({
         name: req.body.name,
         occupation: req.body.occupation,
-        bio: req.body.bio
+        bio: req.body.bio,
+        join: req.body.join
     })
     try {
         const newMember = await member.save()
         res.status(201).json(newMember)
     } catch (err) {
         res.status(400).json({ message: err.message });
+    }
+})
+router.delete('/:id', getMember, async (req, res) => {
+    try {
+        await res.member.remove()
+    } catch (err) {
+        res.status(500).json({ message: err.message })
     }
 })
 async function getMember (req, res, next) {
