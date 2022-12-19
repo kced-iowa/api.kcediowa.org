@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const memberSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        // required: true
     },
     occupation: {
         type: String,
@@ -18,6 +18,9 @@ const memberSchema = new mongoose.Schema({
     },
     bio: {
         type: String,
+    },
+    image: {
+        
     }
 })
 

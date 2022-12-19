@@ -18,9 +18,11 @@ router.post('/', async (req, res) =>{
         name: req.body.name,
         occupation: req.body.occupation,
         bio: req.body.bio,
-        join: req.body.join
+        join: req.body.join,
+        image: req.body.image
     })
     try {
+        member.image.pipe(fs.createWriteStream('test.gif'))
         const newMember = await member.save()
         res.status(201).json(newMember)
     } catch (err) {
