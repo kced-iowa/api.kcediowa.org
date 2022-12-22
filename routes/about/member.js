@@ -1,4 +1,5 @@
 const express = require('express');
+const member = require('../../models/about/member');
 const router = express.Router();
 const Member = require('../../models/about/member');
 
@@ -22,11 +23,22 @@ router.post('/', async (req, res) =>{
         image: req.body.image
     })
     try {
-        member.image.pipe(fs.createWriteStream('test.gif'))
         const newMember = await member.save()
         res.status(201).json(newMember)
     } catch (err) {
         res.status(400).json({ message: err.message });
+    }
+})
+router.patch('/:id', getMember, async (req, res) => {
+    res.member.name = req.body.name
+    res.member.occupation = req.body.occupation
+    res.member.bio = req.body.bio
+    res.member.join = req.body.join
+    try {
+        const updatedMember = await res.member.save()
+        res.json(updatedMember)
+    } catch (err) {
+        res.status(400).json({ message: err.message })
     }
 })
 router.delete('/:id', getMember, async (req, res) => {
