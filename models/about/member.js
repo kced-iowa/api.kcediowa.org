@@ -20,7 +20,6 @@ const memberSchema = new mongoose.Schema({
         type: String,
     },
     image: {
-        
     }
 })
 

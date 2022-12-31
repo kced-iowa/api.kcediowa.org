@@ -1,7 +1,22 @@
 const express = require('express');
-const member = require('../../models/about/member');
+const multer = require('multer');
+const dir = './public/'
 const router = express.Router();
 const Member = require('../../models/about/member');
+
+
+const storage = multer.diskStorage({
+    destination: (req, res, cb) => {
+        cb(null, dir)
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + file.originalname)
+    }
+})
+
+const upload = multer({
+    storage: storage
+})
 
 router.get('/', async (req, res) => {
     try {
@@ -14,13 +29,13 @@ router.get('/', async (req, res) => {
 router.get('/:id', getMember, async (req, res) => {
     res.json(res.member)
 })
-router.post('/', async (req, res) =>{
+router.post('/', upload.single('image'), async (req, res) =>{
     const member = new Member({
-        name: req.body.name,
-        occupation: req.body.occupation,
-        bio: req.body.bio,
-        join: req.body.join,
-        image: req.body.image
+        // name: req.body.name,
+        // occupation: req.body.occupation,
+        // bio: req.body.bio,
+        // join: req.body.join,
+        image: req.file.filename
     })
     try {
         const newMember = await member.save()
