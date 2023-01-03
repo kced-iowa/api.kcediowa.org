@@ -1,6 +1,6 @@
 const express = require('express');
 const multer = require('multer');
-const dir = '../sigourney.com/public/cdn/members'
+const dir = './cdn/members'
 const router = express.Router();
 const Member = require('../../models/about/member');
 
@@ -35,7 +35,7 @@ router.post('/', upload.single('image'), async (req, res) =>{
         occupation: req.body.occupation,
         bio: req.body.bio,
         join: req.body.join,
-        image: req.file.filename
+        image: req.file!==undefined ? req.file.filename : ''
     })
     try {
         const newMember = await member.save()

@@ -26,6 +26,8 @@ const eventsRouter = require("./routes/events/events")
     app.use('/events', eventsRouter)
 const newsRouter = require("./routes/news/news")
     app.use('/news', newsRouter)
+// image route
+app.use('/cdn', express.static(__dirname + '/cdn'))
 
 app.listen(PORT, () => {
     console.log('API is now listening on port ' + PORT)
