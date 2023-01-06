@@ -1,3 +1,4 @@
+const { request } = require('express');
 const express = require('express');
 const multer = require('multer');
 const dir = './cdn/members'
@@ -35,7 +36,7 @@ router.post('/', upload.single('image'), async (req, res) =>{
         occupation: req.body.occupation,
         bio: req.body.bio,
         join: req.body.join,
-        image: req.file!==undefined ? req.file.filename : ''
+        image: req.file!==undefined ? req.file.filename : 'BlacK.jpg'
     })
     try {
         const newMember = await member.save()
@@ -44,11 +45,12 @@ router.post('/', upload.single('image'), async (req, res) =>{
         res.status(400).json({ message: err.message });
     }
 })
-router.patch('/:id', getMember, async (req, res) => {
+router.patch('/:id', getMember, upload.single('image'), async (req, res) => {
     res.member.name = req.body.name
     res.member.occupation = req.body.occupation
     res.member.bio = req.body.bio
     res.member.join = req.body.join
+    res.member.image = req.body.image || req.file.filename
     try {
         const updatedMember = await res.member.save()
         res.json(updatedMember)
