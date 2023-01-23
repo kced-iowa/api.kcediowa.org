@@ -13,9 +13,6 @@ const memberSchema = new mongoose.Schema({
         type: Number,
         // required: true
     },
-    image: {
-        type: String,
-    },
     bio: {
         type: String,
     },

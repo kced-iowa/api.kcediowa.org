@@ -1,4 +1,5 @@
 const express = require('express');
+const fs = require('fs');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const helmet = require('helmet');
@@ -32,6 +33,20 @@ app.use('/cdn', express.static(__dirname + '/cdn'))
 app.listen(PORT, () => {
     console.log('API is now listening on port ' + PORT)
 });
+
+const directories = [
+    {dir: './cdn/business'},
+    {dir: './cdn/members'}
+]
+
+{directories.map(item => {
+    if (fs.existsSync(item.dir)) {
+        console.log('Directory "' + item.dir + '" loaded.')
+    } else {
+        console.log('Directory "' + item.dir + '" not found, creating...')
+        fs.mkdirSync(item.dir)
+    }
+})}
 
 mongoose.connect(MONGO);
 const db = mongoose.connection;
