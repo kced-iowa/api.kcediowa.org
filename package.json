@@ -1,15 +1,16 @@
 {
-  "name": "api",
-  "version": "1.0.0",
+  "name": "api.sigourney.com",
+  "version": "1.0.1",
   "description": "",
   "main": "server.js",
+  "private": "true",
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/horsaen/api.git"
+    "url": "git+https://github.com/horsaen/api.sigourney.com.git"
   },
   "proxy": "http://localhost:3000",
   "author": "horsaen",

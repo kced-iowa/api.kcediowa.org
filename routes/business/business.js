@@ -4,6 +4,7 @@ const Business = require('../../models/business/business');
 const dir = './cdn/business'
 const multer = require('multer');
 const { response } = require('express');
+const res = require('express/lib/response');
 
 const storage = multer.diskStorage({
     destination: (req, res, cb) => {
@@ -60,6 +61,13 @@ router.patch('/:id', getBusiness, uploadFields, async (req, res) => {
     res.business.facebook = req.body.facebook
     res.business.coverimg = req.body.coverimg || req.files['coverimg'][0]['filename']
     res.business.mainimg = req.body.mainimg || req.files['mainimg'][0]['filename']
+    try {
+        const updatedBusiness = await res.business.save()
+        res.json(updatedBusiness)
+    }
+    catch (err) {
+        res.status(400).json({ message: err.message })
+    }
 })
 router.delete('/:id', getBusiness, async (req, res) => {
     try {
