@@ -15,6 +15,7 @@ app.use(bodyParser.json())
 app.use(helmet());
 app.use(express.json())
 app.use(cors());
+mongoose.set('strictQuery', false)
 
 // routes
 const membersRouter = require("./routes/about/member")
