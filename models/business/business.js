@@ -42,7 +42,7 @@ const businessSchema = new mongoose.Schema({
     facebook: {
         type: String
     },
-    contact: contactSchema
+    contact: [contactSchema]
 })
 
 module.exports = mongoose.model('business', businessSchema)
