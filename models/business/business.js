@@ -1,5 +1,17 @@
 const mongoose = require('mongoose');
 
+const contactSchema = new mongoose.Schema({
+    name: {
+        type: String
+    },
+    position: {
+        type: String
+    },
+    number: {
+        type: Number
+    }
+})
+
 const businessSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -29,7 +41,8 @@ const businessSchema = new mongoose.Schema({
     },
     facebook: {
         type: String
-    }
+    },
+    contact: contactSchema
 })
 
 module.exports = mongoose.model('business', businessSchema)
