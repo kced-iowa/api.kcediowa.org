@@ -72,6 +72,7 @@ router.patch('/:id', getBusiness, uploadFields, async (req, res) => {
 router.delete('/:id', getBusiness, async (req, res) => {
     try {
         await res.business.remove()
+        res.status(201).json({ message: "Business deleted successfully."})
     } catch (err) {
         res.status(500).json({ message: err.message })
     }
