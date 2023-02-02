@@ -3,8 +3,6 @@ const router = express.Router();
 const Business = require('../../models/business/business');
 const dir = './cdn/business'
 const multer = require('multer');
-const { response } = require('express');
-const res = require('express/lib/response');
 
 const storage = multer.diskStorage({
     destination: (req, res, cb) => {
@@ -42,7 +40,8 @@ router.post('/', uploadFields, async (req, res) => {
         website: req.body.website,
         facebook: req.body.facebook,
         coverimg: req.files['coverimg']!==undefined ? req.files['coverimg'][0]['filename'] : 'Black.jpg',
-        mainimg: req.files['mainimg']!==undefined ? req.files['mainimg'][0]['filename'] : 'Black.jpg'
+        mainimg: req.files['mainimg']!==undefined ? req.files['mainimg'][0]['filename'] : 'Black.jpg',
+        contact: JSON.parse(req.body.contact)
     })
     try {
         const newBusiness = await business.save()
@@ -72,7 +71,7 @@ router.patch('/:id', getBusiness, uploadFields, async (req, res) => {
 router.delete('/:id', getBusiness, async (req, res) => {
     try {
         await res.business.remove()
-        res.status(201).json({ message: "Business deleted successfully."})
+        res.status(200).json({ message: "Business deleted successfully."})
     } catch (err) {
         res.status(500).json({ message: err.message })
     }

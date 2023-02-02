@@ -5,21 +5,19 @@ const contactSchema = new mongoose.Schema({
         type: String
     },
     position: {
-        type: String
+        
     },
     number: {
-        type: Number
+        
     }
 })
 
 const businessSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true
     },
     type: {
         type: String,
-        required: true
     },
     coverimg: {
         type: String
@@ -42,7 +40,17 @@ const businessSchema = new mongoose.Schema({
     facebook: {
         type: String
     },
-    contact: [contactSchema]
+    contact: {
+        name: {
+            type: String
+        },
+        position: {
+            
+        },
+        number: {
+            
+        }
+    }
 })
 
 module.exports = mongoose.model('business', businessSchema)
