@@ -61,6 +61,8 @@ router.patch('/:id', getBusiness, uploadFields, async (req, res) => {
     res.business.facebook = req.body.facebook
     res.business.coverimg = req.body.coverimg || req.files['coverimg'][0]['filename']
     res.business.mainimg = req.body.mainimg || req.files['mainimg'][0]['filename']
+    res.business.contactimg = req.body.contactimg || req.files['contactimg'][0]['filename']
+    res.business.contact = JSON.parse(req.body.contact)
     try {
         const updatedBusiness = await res.business.save()
         res.json(updatedBusiness)
