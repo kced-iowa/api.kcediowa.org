@@ -1,17 +1,5 @@
 const mongoose = require('mongoose');
 
-const contactSchema = new mongoose.Schema({
-    name: {
-        type: String
-    },
-    position: {
-        
-    },
-    number: {
-        
-    }
-})
-
 const businessSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -23,6 +11,9 @@ const businessSchema = new mongoose.Schema({
         type: String
     },
     mainimg: {
+        type: String
+    },
+    contactimg: {
         type: String
     },
     phone: {
@@ -44,12 +35,10 @@ const businessSchema = new mongoose.Schema({
         name: {
             type: String
         },
-        position: {
-            
-        },
-        number: {
-            
-        }
+        position: {},
+        number: {},
+        email: {},
+        website: {}
     }
 })
 

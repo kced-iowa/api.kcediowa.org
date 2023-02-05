@@ -17,7 +17,7 @@ const upload = multer({
     storage: storage
 })
 
-var uploadFields = upload.fields([{name: 'coverimg'}, {name: 'mainimg'}])
+var uploadFields = upload.fields([{name: 'coverimg'}, {name: 'mainimg'}, {name: 'contactimg'}])
 
 router.get('/', async (req, res) => {
     try {
@@ -41,6 +41,7 @@ router.post('/', uploadFields, async (req, res) => {
         facebook: req.body.facebook,
         coverimg: req.files['coverimg']!==undefined ? req.files['coverimg'][0]['filename'] : 'Black.jpg',
         mainimg: req.files['mainimg']!==undefined ? req.files['mainimg'][0]['filename'] : 'Black.jpg',
+        contactimg: req.files['contactimg']!==undefined ? req.files['contactimg'][0]['filename'] : 'Black.jpg',
         contact: JSON.parse(req.body.contact)
     })
     try {
