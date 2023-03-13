@@ -3,6 +3,7 @@ const fs = require('fs');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const helmet = require('helmet');
+// basic auth
 const { apiKeyAuth } = require('@vpriem/express-api-key-auth');
 var bodyParser = require('body-parser')
 require('dotenv').config();
@@ -35,10 +36,15 @@ app.listen(PORT, () => {
     console.log('API is now listening on port ' + PORT)
 });
 
+// utility to verify that cdn routes exist on first load, and then create them if they do not exist
 const directories = [
     {dir: './cdn/business'},
     {dir: './cdn/members'}
 ]
+
+if (!fs.existsSync("./cdn")) {
+    fs.mkdirSync("./cdn")
+}
 
 {directories.map(item => {
     if (fs.existsSync(item.dir)) {
