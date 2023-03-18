@@ -28,5 +28,42 @@ router.post('/', async (req, res) => {
         res.status(400).json({ message: err.message });
     }
 })
-
+router.patch('/:id', getEvent, async (req, res) => {
+    res.event.title = req.body.title,
+    res.event.dd = req.body.dd,
+    res.event.mm = req.body.mm,
+    res.event.timestart = req.body.timestart,
+    res.event.timeend = req.body.timeend,
+    res.event.desc = req.body.desc,
+    res.event.address = req.body.address,
+    res.event.rsvp = req.body.rsvp
+    try {
+        const updatedEvent = await res.event.save()
+        res.status(201).json(updatedEvent)
+    }
+    catch (err) {
+        res.status(400).json({ message: err.message })
+    }
+})
+router.delete("/:id", getEvent, async (req, res) => {
+    try {
+        await res.event.remove()
+        res.status(200).json({ message: "Event deleted successfully."})
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
+})
+async function getEvent (req, res, next) {
+    let event
+    try {
+        event = await Events.findById(req.params.id)
+        if (event == null) {
+            return res.status(404).json({ message: 'Cannot find business' })
+        } 
+    } catch (err) {
+        return res.status(500).json({ message: err.message })
+    }
+    res.event = event
+    next()
+}
 module.exports = router;
