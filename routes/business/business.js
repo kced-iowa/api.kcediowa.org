@@ -85,7 +85,7 @@ async function getBusiness (req, res, next) {
         business = await Business.findById(req.params.id)
         if (business == null) {
             return res.status(404).json({ message: 'Cannot find business' })
-    }
+        }
     } catch (err) {
         return res.status(500).json({ message: err.message })
     }
