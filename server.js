@@ -39,7 +39,8 @@ app.listen(PORT, () => {
 // utility to verify that cdn routes exist on first load, and then create them if they do not exist
 const directories = [
     {dir: './cdn/business'},
-    {dir: './cdn/members'}
+    {dir: './cdn/members'},
+    {dir: './cdn/news'}
 ]
 
 if (!fs.existsSync("./cdn")) {
