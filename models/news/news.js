@@ -1,26 +1,18 @@
 const mongoose = require('mongoose');
 
 const newsSchema = new mongoose.Schema({
-    id: {
-        type: Number
-    },
     author: {
         type: String,
         required: true
     },
-    mm: {
-        type: String,
-    },
-    dd: {
-        type: Number
-    },
-    yy: {
-        type: Number
+    date: {
+        type: String
     },
     title: {
         type: String
     },
-    content: {
+    metadata: {},
+    file: {
         type: String
     }
 })
