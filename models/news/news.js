@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const newsSchema = new mongoose.Schema({
     author: {
         type: String,
-        required: true
     },
     date: {
         type: String
