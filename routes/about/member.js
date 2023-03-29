@@ -61,6 +61,7 @@ router.patch('/:id', getMember, upload.single('image'), async (req, res) => {
 router.delete('/:id', getMember, async (req, res) => {
     try {
         await res.member.remove()
+        res.status(200).json({ message: 'Member removed successfully'})
     } catch (err) {
         res.status(500).json({ message: err.message })
     }
