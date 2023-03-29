@@ -44,7 +44,9 @@ router.post('/', upload.single('file'), async (req, res) => {
 router.delete('/:id', getNews, async (req, res) => {
     try {
         await res.news.remove()
-        fs.unlinkSync(dir + '/' + res.news.file)
+        if (res.news.file !== "" || undefined) {
+            fs.unlinkSync(dir + '/' + res.news.file)
+        }
         res.status(200).json({ message: "Event deleted successfully."})
     } catch (err) {
         return res.status(500).json({ message: err.message })
