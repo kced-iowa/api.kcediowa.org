@@ -29,8 +29,10 @@ const eventsRouter = require("./routes/events/events")
     app.use('/events', eventsRouter)
 const newsRouter = require("./routes/news/news")
     app.use('/news', newsRouter)
+const backgroundsRouter = require("./routes/backgrounds/backgrounds")
+    app.use('/backgrounds', backgroundsRouter)
 // image route
-app.use('/cdn', express.static(__dirname + '/cdn'))
+app.use('/cdn', express.static(__dirname + '/cdn'), cors())
 
 app.listen(PORT, () => {
     console.log('API is now listening on port ' + PORT)
@@ -40,7 +42,8 @@ app.listen(PORT, () => {
 const directories = [
     {dir: './cdn/business'},
     {dir: './cdn/members'},
-    {dir: './cdn/news'}
+    {dir: './cdn/news'},
+    {dir: './cdn/backgrounds'}
 ]
 
 if (!fs.existsSync("./cdn")) {
