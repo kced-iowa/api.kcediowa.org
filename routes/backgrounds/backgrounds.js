@@ -27,6 +27,18 @@ router.get('/', async (req, res) => {
     }
 })
 
+router.post('/', upload.single('file'), async (req, res) => {
+    const background = new backgroundData({
+        file: req.file.filename
+    })
+    try {
+        const newBackground = await background.save()
+        res.status(201).json(newBackground)
+    } catch (err) {
+        res.status(400).json({ message: err.message })
+    }
+})
+
 router.patch('/:id', getBackground, upload.single('file'), async (req, res) => {
     // FIX THIS
     // if (req.file.filename !== res.background.file) {
