@@ -3,7 +3,7 @@ const fs = require('fs');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const helmet = require('helmet');
-// basic auth
+// basic auth, change to cors instead ?
 const { apiKeyAuth } = require('@vpriem/express-api-key-auth');
 var bodyParser = require('body-parser')
 require('dotenv').config();
@@ -31,6 +31,11 @@ const newsRouter = require("./routes/news/news")
     app.use('/news', newsRouter)
 const backgroundsRouter = require("./routes/backgrounds/backgrounds")
     app.use('/backgrounds', backgroundsRouter)
+const townshipsRouter = require("./routes/townships/townships")
+    app.use('/townships', townshipsRouter)
+const recreationRouter = require("./routes/recreation/recreation")
+    app.use('/recreation', recreationRouter)
+
 // image route
 app.use('/cdn', express.static(__dirname + '/cdn'), cors())
 
@@ -43,7 +48,8 @@ const directories = [
     {dir: './cdn/business'},
     {dir: './cdn/members'},
     {dir: './cdn/news'},
-    {dir: './cdn/backgrounds'}
+    {dir: './cdn/backgrounds'},
+    {dir: './cdn/townships'}
 ]
 
 if (!fs.existsSync("./cdn")) {
