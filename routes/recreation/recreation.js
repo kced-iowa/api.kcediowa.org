@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const multer = require('multer')
+const dir = './cdn/recreation'
 const recreationData = require('../../models/recreation/recreation')
 
 const storage = multer.diskStorage({
@@ -82,4 +83,4 @@ async function getRecreation (req, res, next) {
     next()
 }
 
-module.export = router;
+module.exports = router;
