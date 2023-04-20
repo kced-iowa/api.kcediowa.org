@@ -66,8 +66,7 @@ router.patch('/:id', getBusiness, uploadFields, async (req, res) => {
     try {
         const updatedBusiness = await res.business.save()
         res.json(updatedBusiness)
-    }
-    catch (err) {
+    } catch (err) {
         res.status(400).json({ message: err.message })
     }
 })
