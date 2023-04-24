@@ -49,7 +49,8 @@ const directories = [
     {dir: './cdn/members'},
     {dir: './cdn/news'},
     {dir: './cdn/backgrounds'},
-    {dir: './cdn/townships'}
+    {dir: './cdn/townships'},
+    {dir: './cdn/recreation'}
 ]
 
 if (!fs.existsSync("./cdn")) {

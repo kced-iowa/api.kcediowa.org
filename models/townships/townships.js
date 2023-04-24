@@ -16,6 +16,9 @@ const townshipsSchema = new mongoose.Schema({
     mapsAddress: {
         type: String
     },
+    about: {
+        type: String
+    },
     socials: [{
         type: {
             type: String

@@ -26,14 +26,19 @@ router.get('/', async (req, res) => {
     }
 })
 
+router.get('/:id', getTownship, async (req, res) => {
+    res.json(res.township)
+})
+
 const uploadFields = upload.fields([{name: 'coverImg'}, {name: 'mainImg'}])
 
-router.post('/', async (req, res) => {
+router.post('/', uploadFields, async (req, res) => {
     const township = new townshipData({
         name: req.body.name,
         url: req.body.url,
         mapsAddress: req.body.mapsAddress,
-        socials: req.body.socials,
+        socials: JSON.parse(req.body.socials),
+        about: req.body.about,
         coverImg: req.files['coverImg']!==undefined ? req.files['coverImg'][0]['filename'] : 'Black.jpg',
         mainImg: req.files['mainImg']!==undefined ? req.files['mainImg'][0]['filename'] : 'Black.jpg'
     })
@@ -46,12 +51,13 @@ router.post('/', async (req, res) => {
 })
 
 router.patch('/:id', getTownship, uploadFields, async (req, res) => {
-    res.recreation.name = req.body.name,
-    res.recreation.url = req.body.url,
-    res.recreation.mapsAddress = req.body.mapsAddress,
-    res.recreation.socials = req.body.socials,
-    res.recreation.coverImg = req.files['coverImg']!==undefined ? req.files['coverImg'][0]['filename'] : 'Black.jpg',
-    res.recreation.mainImg = req.files['mainImg']!==undefined ? req.files['mainImg'][0]['filename'] : 'Black.jpg'
+    res.township.name = req.body.name,
+    res.township.url = req.body.url,
+    res.township.mapsAddress = req.body.mapsAddress,
+    res.township.socials = JSON.parse(req.body.socials),
+    res.township.about = req.body.about,
+    res.township.coverImg = req.body.coverImg || req.files['coverImg'][0]['filename']
+    res.township.mainImg = req.body.mainImg || req.files['mainImg'][0]['filename']
     try {
         const updatedTownship = await res.township.save()
         res.json(updatedTownship)
