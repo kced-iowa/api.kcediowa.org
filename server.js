@@ -35,6 +35,8 @@ const townshipsRouter = require("./routes/townships/townships")
     app.use('/townships', townshipsRouter)
 const recreationRouter = require("./routes/recreation/recreation")
     app.use('/recreation', recreationRouter)
+const membershipRouter = require("./routes/memberships/memberships")
+    app.use('/memberships', membershipRouter)
 
 // image route
 app.use('/cdn', express.static(__dirname + '/cdn'), cors())
