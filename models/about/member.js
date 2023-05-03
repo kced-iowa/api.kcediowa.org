@@ -16,8 +16,10 @@ const memberSchema = new mongoose.Schema({
     bio: {
         type: String,
     },
-    image: {
-    }
+    image: { },
+    email: {type: String},
+    phone: {type: String},
+    website: {type: String}
 })
 
 module.exports = mongoose.model('member', memberSchema)

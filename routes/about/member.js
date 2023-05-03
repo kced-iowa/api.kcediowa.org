@@ -36,7 +36,10 @@ router.post('/', upload.single('image'), async (req, res) =>{
         occupation: req.body.occupation,
         bio: req.body.bio,
         join: req.body.join,
-        image: req.file!==undefined ? req.file.filename : 'BlacK.jpg'
+        image: req.file!==undefined ? req.file.filename : 'BlacK.jpg',
+        email: req.body.email,
+        phone: req.body.phone,
+        website: req.body.website
     })
     try {
         const newMember = await member.save()
@@ -51,6 +54,9 @@ router.patch('/:id', getMember, upload.single('image'), async (req, res) => {
     res.member.bio = req.body.bio
     res.member.join = req.body.join
     res.member.image = req.body.image || req.file.filename
+    res.member.email = req.body.email
+    res.member.phone = req.body.phone,
+    res.member.website = req.body.website
     try {
         const updatedMember = await res.member.save()
         res.json(updatedMember)
