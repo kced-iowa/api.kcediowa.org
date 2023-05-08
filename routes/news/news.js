@@ -27,6 +27,9 @@ router.get('/', async (req, res) => {
     }
 })
 router.post('/', upload.single('file'), async (req, res) => {
+    const date = {
+        date: Date.now()
+    }
     const news = new newsData({
         author: req.body.author,
         date: req.body.date,
@@ -34,8 +37,9 @@ router.post('/', upload.single('file'), async (req, res) => {
         metadata: req.body.metadata,
         file: req.file!==undefined ? req.file.filename : ''
     })
+    const obj = Object.assign(news, date)
     try {
-        const newNews = await news.save()
+        const newNews = await obj.save()
         res.status(201).json(newNews)
     } catch (err) {
         res.status(400).json({ message: err.message });
