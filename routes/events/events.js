@@ -4,7 +4,7 @@ const Events = require('../../models/events/events')
 
 router.get('/', async (req, res) => {
     try {
-        const event = await Events.find();
+        const event = await Events.find().sort({_id: -1});
         res.json(event);
     } catch (err) {
         res.status(500).json({ message: err.message });
@@ -13,10 +13,8 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     const event = new Events({
         title: req.body.title,
-        dd: req.body.dd,
-        mm: req.body.mm,
-        timestart: req.body.timestart,
-        timeend: req.body.timeend,
+        start: req.body.start,
+        end: req.body.end,
         desc: req.body.desc,
         address: req.body.address,
         rsvp: req.body.rsvp
@@ -29,13 +27,11 @@ router.post('/', async (req, res) => {
     }
 })
 router.patch('/:id', getEvent, async (req, res) => {
-    res.event.title = req.body.title,
-    res.event.dd = req.body.dd,
-    res.event.mm = req.body.mm,
-    res.event.timestart = req.body.timestart,
-    res.event.timeend = req.body.timeend,
-    res.event.desc = req.body.desc,
-    res.event.address = req.body.address,
+    res.event.title = req.body.title
+    res.event.start = req.body.start
+    res.event.end = req.body.end
+    res.event.desc = req.body.desc
+    res.event.address = req.body.address
     res.event.rsvp = req.body.rsvp
     try {
         const updatedEvent = await res.event.save()
