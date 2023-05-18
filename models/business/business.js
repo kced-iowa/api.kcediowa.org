@@ -28,9 +28,14 @@ const businessSchema = new mongoose.Schema({
     website: {
         type: String
     },
-    facebook: {
-        type: String
-    },
+    socials: [{
+        type: {
+            type: String
+        },
+        user: {
+            type: String
+        }
+    }],
     contact: {
         name: {
             type: String

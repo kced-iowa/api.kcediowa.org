@@ -38,7 +38,7 @@ router.post('/', uploadFields, async (req, res) => {
         address: req.body.address,
         bio: req.body.bio,
         website: req.body.website,
-        facebook: req.body.facebook,
+        socials: JSON.parse(req.body.socials),
         coverimg: req.files['coverimg']!==undefined ? req.files['coverimg'][0]['filename'] : 'Black.jpg',
         mainimg: req.files['mainimg']!==undefined ? req.files['mainimg'][0]['filename'] : 'Black.jpg',
         contactimg: req.files['contactimg']!==undefined ? req.files['contactimg'][0]['filename'] : 'Black.jpg',
@@ -58,7 +58,7 @@ router.patch('/:id', getBusiness, uploadFields, async (req, res) => {
     res.business.address = req.body.address
     res.business.bio = req.body.bio
     res.business.website = req.body.website
-    res.business.facebook = req.body.facebook
+    socials: JSON.parse(req.body.socials),
     res.business.coverimg = req.body.coverimg || req.files['coverimg'][0]['filename']
     res.business.mainimg = req.body.mainimg || req.files['mainimg'][0]['filename']
     res.business.contactimg = req.body.contactimg || req.files['contactimg'][0]['filename']
