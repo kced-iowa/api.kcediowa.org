@@ -58,7 +58,7 @@ router.patch('/:id', getBusiness, uploadFields, async (req, res) => {
     res.business.address = req.body.address
     res.business.bio = req.body.bio
     res.business.website = req.body.website
-    socials: JSON.parse(req.body.socials),
+    res.business.socials = JSON.parse(req.body.socials),
     res.business.coverimg = req.body.coverimg || req.files['coverimg'][0]['filename']
     res.business.mainimg = req.body.mainimg || req.files['mainimg'][0]['filename']
     res.business.contactimg = req.body.contactimg || req.files['contactimg'][0]['filename']
