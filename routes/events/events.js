@@ -4,7 +4,7 @@ const Events = require('../../models/events/events')
 
 router.get('/', async (req, res) => {
     try {
-        const event = await Events.find().sort({_id: -1});
+        const event = await Events.find().sort({ start: 1 });
         res.json(event);
     } catch (err) {
         res.status(500).json({ message: err.message });
@@ -17,7 +17,8 @@ router.post('/', async (req, res) => {
         end: req.body.end,
         desc: req.body.desc,
         address: req.body.address,
-        rsvp: req.body.rsvp
+        link: req.body.link,
+        rsvp: req.body.rsvp,
     })
     try {
         const newEvent = await event.save()
@@ -33,6 +34,7 @@ router.patch('/:id', getEvent, async (req, res) => {
     res.event.desc = req.body.desc
     res.event.address = req.body.address
     res.event.rsvp = req.body.rsvp
+    res.event.link = req.body.link
     try {
         const updatedEvent = await res.event.save()
         res.status(201).json(updatedEvent)

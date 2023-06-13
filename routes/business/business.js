@@ -21,7 +21,7 @@ var uploadFields = upload.fields([{name: 'coverimg'}, {name: 'mainimg'}, {name: 
 
 router.get('/', async (req, res) => {
     try {
-        const businesses = await Business.find();
+        const businesses = await Business.find().sort({ name: 1});
         res.json(businesses);
     } catch (err) {
         res.status(500).json({ message: err.message });

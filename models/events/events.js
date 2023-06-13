@@ -24,6 +24,9 @@ const eventsSchema = new mongoose.Schema({
     },
     rsvp: {
         type: String
+    },
+    link: {
+        type: String
     }
 })
 
