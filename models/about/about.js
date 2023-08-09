@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 
 const aboutSchema = new mongoose.Schema({
-    id: {
-        type: Number,
+    title: {
+        type: String,
+        required: true
     },
     content: {
         type: String,
