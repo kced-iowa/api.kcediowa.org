@@ -42,7 +42,8 @@ router.post('/', uploadFields, async (req, res) => {
         coverimg: req.files['coverimg']!==undefined ? req.files['coverimg'][0]['filename'] : 'Black.jpg',
         mainimg: req.files['mainimg']!==undefined ? req.files['mainimg'][0]['filename'] : 'Black.jpg',
         contactimg: req.files['contactimg']!==undefined ? req.files['contactimg'][0]['filename'] : 'Black.jpg',
-        contact: JSON.parse(req.body.contact)
+        contact: JSON.parse(req.body.contact),
+        keywords: JSON.parse(req.body.keywords)
     })
     try {
         const newBusiness = await business.save()
@@ -63,6 +64,7 @@ router.patch('/:id', getBusiness, uploadFields, async (req, res) => {
     res.business.mainimg = req.body.mainimg || req.files['mainimg'][0]['filename']
     res.business.contactimg = req.body.contactimg || req.files['contactimg'][0]['filename']
     res.business.contact = JSON.parse(req.body.contact)
+    res.business.keywords = JSON.parse(req.body.keywords)
     try {
         const updatedBusiness = await res.business.save()
         res.json(updatedBusiness)

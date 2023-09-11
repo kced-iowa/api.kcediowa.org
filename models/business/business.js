@@ -44,7 +44,10 @@ const businessSchema = new mongoose.Schema({
         number: {},
         email: {},
         website: {}
-    }
+    },
+    keywords: [{
+        type: String
+    }]
 })
 
 module.exports = mongoose.model('business', businessSchema)
